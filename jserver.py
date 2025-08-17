@@ -14,6 +14,7 @@ def pixels_data(number, next=False):
     number = int(number)
     px = lib.complete_random_color()
     rpx = lib.get_rest_of_pixel(px, OFFSET)
+    rest = len(rpx)
     res = rpx
 
     colors = []
@@ -33,23 +34,23 @@ def pixels_data(number, next=False):
         coords.append(OFFSET[0]+x)
         coords.append(OFFSET[1]+y)
 
-    return {"colors": colors, "coords": coords}
+    return {"colors": colors, "coords": coords}, rest
 
 @app.route('/pixels/<number>', methods=['GET'])
-def receive_post(number):
+def receive_post(number:str):
     global last_sended
 
-    number = int(number)
-    data = pixels_data(number)
+    number = int(number.split(".")[0])
+    data, rest = pixels_data(number)
 
     if last_sended == data:
-        data = pixels_data(number, next=True)
+        data, rest = pixels_data(number, next=True)
 
     last_sended = data
 
-    print(f"[INFO] Count:{number}\n{' '*7}Colors:{data['colors'][:3]}...{' '*7}Coords:{data['coords'][:3]}...")
+    print(f"[INFO] Count : {number}\n{' '*7}Colors: {data['colors'][:3]}...\n{' '*7}Coords: {data['coords'][:3]}...\n{' '*7}Rest  : {rest}px")
 
     return jsonify(data), 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

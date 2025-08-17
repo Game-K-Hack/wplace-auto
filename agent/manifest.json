@@ -1,8 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "JSON Stringify Modifier",
+  "name": "Agent WPlace",
   "version": "1.0",
-  "description": "Modifie JSON.stringify pour intercepter et remplacer colors et coords",
+  "description": "Agent WPlace: intercepter et remplacer colors et coords",
+  "icons": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "64": "icons/icon-64.png",
+      "128": "icons/icon-128.png",
+      "256": "icons/icon-256.png"
+  },
   "permissions": [
     "storage",
     "activeTab",
@@ -21,10 +29,6 @@
   "background": {
     "scripts": ["background.js"],
     "persistent": false
-  },
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_title": "JSON Stringify Modifier"
   },
   "web_accessible_resources": ["content.js"]
 }

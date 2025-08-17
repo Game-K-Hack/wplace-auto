@@ -28,7 +28,7 @@ def complete_random_color(seed=8, color=1) -> list[tuple[int, int, list]]:
     return colors
 
 def get_current_paint():
-    img = requests.get(core.Core.current_paint, verify=False).content
+    img = requests.get(core.Core.current_paint).content
     return Image.open(io.BytesIO(img))
 
 def get_rest_of_pixel(pixel_list:list[tuple[int, int, list]], template_offset:tuple[int, int]) -> list[tuple[int, int, tuple]]:
