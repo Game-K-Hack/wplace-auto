@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .status {
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    
+    .status.active {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .status.inactive {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .info {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+    
+    .test-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+    
+    .test-button:hover {
+      background-color: #0056b3;
+    }
+    
+    .logs {
+      max-height: 150px;
+      overflow-y: auto;
+      background-color: #f8f9fa;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 11px;
+      border-radius: 3px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3>JSON Stringify Modifier</h3>
+  </div>
+  
+  <div id="status" class="status active">
+    ✅ Extension Active
+  </div>
+  
+  <button id="testButton" class="test-button">
+    Tester la modification
+  </button>
+  
+  <div id="logs" class="logs" style="display: none;">
+    <!-- Les logs apparaîtront ici -->
+  </div>
+  
+  <div class="info">
+    <strong>Fonctionnement :</strong><br>
+    • Détecte les objets avec les clés colors, coords et t<br>
+    • Récupère me.charges.count depuis backend.wplace.live<br>
+    • Met à jour colors et coords depuis localhost:5000<br>
+    • Remplace les valeurs dans le JSON final
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
